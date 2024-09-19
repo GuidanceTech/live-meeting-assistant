@@ -197,6 +197,25 @@ const CallSummary = ({ item }) => {
                 </div>
               ),
             },
+            {
+              label: 'Transcript',
+              id: 'transcriptpanel',
+              content: (
+                <div>
+                  <div>
+                    {/* eslint-disable-next-line react/no-array-index-key */}
+                      {<CallTranscriptContainer
+                        item={item}
+                        setToolsOpen={setToolsOpen}
+                        callTranscriptPerCallId={callTranscriptPerCallId}
+                        translateClient={translateClient}
+                        collapseSentiment={collapseSentiment}
+                        enableSentimentAnalysis={enableSentimentAnalysis}
+                      />}
+                  </div>
+                </div>
+              ),
+            },
           ]}
         />
       </Grid>
@@ -1041,14 +1060,6 @@ export const CallPanel = ({ item, callTranscriptPerCallId, setToolsOpen }) => {
           )}
         </Grid>
       )}
-      <CallTranscriptContainer
-        item={item}
-        setToolsOpen={setToolsOpen}
-        callTranscriptPerCallId={callTranscriptPerCallId}
-        translateClient={translateClient}
-        collapseSentiment={collapseSentiment}
-        enableSentimentAnalysis={enableSentimentAnalysis}
-      />
     </SpaceBetween>
   );
 };
